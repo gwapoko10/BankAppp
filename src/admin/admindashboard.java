@@ -160,6 +160,7 @@ public class admindashboard extends javax.swing.JFrame {
         this.dispose();
         JOptionPane.showMessageDialog(null, "Logout Success!");
         
+       
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
