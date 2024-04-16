@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 
 
@@ -44,7 +45,38 @@ public class dbConnector {
         }
     
     
+   
+public void updateData(String sql){
+        
+        try{
+            PreparedStatement pst = connect.prepareStatement(sql);
+            int rowsUpdated = pst.executeUpdate();
+            if(rowsUpdated > 0){
+                JOptionPane.showMessageDialog(null,"Data Updated Succesfully!");
+            }else{
+                System.out.println("Data Update Failed!");
+            }
+            pst.close();
+        }catch(SQLException ex){
+            System.out.println("Connection Error:"+ex);
+        }
+    }
     
+    public void deleteData(int id, String table){
+        try{
+            PreparedStatement pst = connect.prepareStatement("DELETE FROM tbl_user WHERE u_id = ?");
+            pst.setInt(1,id);
+            int rowsDeleted = pst.executeUpdate();
+                if(rowsDeleted > 0){
+                    JOptionPane.showMessageDialog(null,"Data Deleted Succesfully!");
+                }else{
+                    System.out.println("Data Delete Failed!");
+                }
+                pst.close();
+        }catch(SQLException ex){
+            System.out.println("Connection Error:"+ex);
+        }
+    }
     
     
 }

@@ -10,6 +10,7 @@ import config.dbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import user.userdashboard;
 
 /**
  *
@@ -24,12 +25,26 @@ public class loginform extends javax.swing.JFrame {
         initComponents();
     }
 
+   static String status;
+    static String type;
+    static String fname;
+    static String lname;
+            
     public static boolean loginAcc(String username, String password){
         dbConnector connector = new dbConnector();
         try{
             String query = "SELECT * FROM tbl_user  WHERE user_username = '" + username + "' AND user_password = '" + password + "'";
             ResultSet resultSet = connector.getData(query);
-            return resultSet.next();
+            if(resultSet.next()){
+                status = resultSet.getString("user_status");
+                type = resultSet.getString("user_type");
+                fname = resultSet.getString("user_fname");
+                lname = resultSet.getString("user_lname");
+                return true;
+            }else{
+                return false;
+            }
+            
         }catch (SQLException ex) {
             return false;
         }
@@ -54,7 +69,7 @@ public class loginform extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        user = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -62,34 +77,37 @@ public class loginform extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel4.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 255));
         jPanel4.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("LOGIN FORM!");
         jPanel4.add(jLabel1);
         jLabel1.setBounds(290, 70, 221, 44);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USERNAME:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(80, 50, 100, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PASSWORD:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(80, 90, 100, 17);
 
-        user.addActionListener(new java.awt.event.ActionListener() {
+        username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userActionPerformed(evt);
+                usernameActionPerformed(evt);
             }
         });
-        jPanel1.add(user);
-        user.setBounds(181, 47, 190, 30);
+        jPanel1.add(username);
+        username.setBounds(181, 47, 190, 30);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +157,7 @@ public class loginform extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -161,28 +179,39 @@ public class loginform extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         
        
         
-    }//GEN-LAST:event_userActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       
-        if(loginAcc(user.getText(), password.getText())){
-            JOptionPane.showMessageDialog(null, "Login Success!");
-            admindashboard ads = new admindashboard();
-            ads.setVisible(true);
-            this.dispose();
-            
-            
-            
-        }else{
-            JOptionPane.showMessageDialog(null,"Login Failed");
-            
-            
-        }
         
+        if(loginAcc(username.getText(), password.getText())){
+            if(!status.equals("Active")){
+                JOptionPane.showMessageDialog(null,"Pending Account, Wait for the Admin to Approval!");
+            }else{
+                if(type.equals("Admin")){
+                    JOptionPane.showMessageDialog(null, "Login Successfully!");
+                    admindashboard ap = new admindashboard();
+                    ap.uname.setText(""+lname);
+                    ap.setVisible(true);
+                    this.dispose();
+                }else if(type.equals("User")){
+                    JOptionPane.showMessageDialog(null, "Login Successfully!");
+                    userdashboard up = new userdashboard();
+                    up.bname.setText(""+lname);
+                    up.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No account type, Contact the Admin!");
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Invalid Account!");
+        }      
+      
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -250,6 +279,6 @@ public class loginform extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField password;
-    private javax.swing.JTextField user;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
