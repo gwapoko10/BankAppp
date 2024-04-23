@@ -6,6 +6,8 @@
 package bankappp;
 
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -23,6 +25,7 @@ public class registrationform extends javax.swing.JFrame {
         initComponents();
     }
 
+    
     
     public static String us, em;
     
@@ -115,42 +118,63 @@ public class registrationform extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel3.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("First name:");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(30, 39, 85, 30);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Last name:");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(30, 75, 85, 29);
 
         fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fnameActionPerformed(evt);
             }
         });
+        jPanel3.add(fname);
+        fname.setBounds(119, 49, 156, 20);
+        jPanel3.add(lname);
+        lname.setBounds(119, 78, 156, 24);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(30, 115, 85, 22);
 
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
             }
         });
+        jPanel3.add(email);
+        email.setBounds(119, 115, 156, 22);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Username:");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(30, 143, 85, 25);
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password:");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(30, 175, 85, 25);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Type:");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(30, 200, 85, 25);
+        jPanel3.add(username);
+        username.setBounds(119, 144, 156, 25);
 
         acctype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         acctype.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +182,8 @@ public class registrationform extends javax.swing.JFrame {
                 acctypeActionPerformed(evt);
             }
         });
+        jPanel3.add(acctype);
+        acctype.setBounds(119, 201, 156, 25);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -165,6 +191,8 @@ public class registrationform extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton1);
+        jButton1.setBounds(119, 244, 65, 23);
 
         jButton2.setText("Register");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -172,74 +200,10 @@ public class registrationform extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fname)
-                    .addComponent(username)
-                    .addComponent(acctype, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                    .addComponent(lname)
-                    .addComponent(email)
-                    .addComponent(pass))
-                .addGap(545, 545, 545))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(pass)
-                        .addGap(2, 2, 2)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(acctype, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(188, 188, 188))
-        );
+        jPanel3.add(jButton2);
+        jButton2.setBounds(194, 244, 81, 23);
+        jPanel3.add(pass);
+        pass.setBounds(119, 175, 156, 23);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 70, 820, 420);
@@ -302,6 +266,11 @@ public class registrationform extends javax.swing.JFrame {
         }else if(duplicateCheck()){
             System.out.println("Duplicate Exist");
         }else{
+            
+            
+            
+                try{
+                String pw = passwordHasher.hashPassword(pass.getText());
                 if(dbc.insertData("INSERT INTO tbl_user("
                     + "user_fname,"
                     + "user_lname,"
@@ -314,17 +283,20 @@ public class registrationform extends javax.swing.JFrame {
                     + "'"+lname.getText()+"',"
                     + "'"+email.getText()+"',"
                     + "'"+username.getText()+"',"
-                    + "'"+pass.getText()+"',"
+                    + "'"+pw+"',"
                     + "'"+acctype.getSelectedItem()+"','Pending')")){
             
                 JOptionPane.showMessageDialog(null, "Inserted Successfully");
                 loginform lf = new loginform();
                 lf.setVisible(true);
                 this.dispose();
-
+                 
             }else{
                 JOptionPane.showMessageDialog(null, "Connection Error!");
             }
+                }catch(NoSuchAlgorithmException ex){
+                        System.out.println(""+ex);
+                        }
         }
         
         
@@ -383,6 +355,6 @@ public class registrationform extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField lname;
     private javax.swing.JPasswordField pass;
-    private javax.swing.JTextField username;
+    public javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

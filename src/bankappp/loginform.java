@@ -6,7 +6,10 @@
 package bankappp;
 
 import admin.admindashboard;
+import config.Session;
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -27,25 +30,40 @@ public class loginform extends javax.swing.JFrame {
 
    static String status;
     static String type;
-    static String fname;
-    static String lname;
+    
             
     public static boolean loginAcc(String username, String password){
         dbConnector connector = new dbConnector();
         try{
-            String query = "SELECT * FROM tbl_user  WHERE user_username = '" + username + "' AND user_password = '" + password + "'";
+            String query = "SELECT * FROM tbl_user  WHERE user_username = '" + username + "'";
             ResultSet resultSet = connector.getData(query);
             if(resultSet.next()){
-                status = resultSet.getString("user_status");
-                type = resultSet.getString("user_type");
-                fname = resultSet.getString("user_fname");
-                lname = resultSet.getString("user_lname");
+                
+                String hashedPass = resultSet.getString("user_password");
+                String rehashedPass = passwordHasher.hashPassword(password);
+                
+                
+                if(hashedPass.equals(rehashedPass)){
+                    status = resultSet.getString("user_status");
+                    type = resultSet.getString("user_type");
+                    Session sess = Session.getInstance();
+                    sess.setUid(resultSet.getInt("user_id"));
+                    sess.setFname(resultSet.getString("user_fname"));
+                    sess.setLname(resultSet.getString("user_lname"));
+                    sess.setEmail(resultSet.getString("user_email"));
+                    sess.setUsername(resultSet.getString("user_username"));
+                    sess.setType(resultSet.getString("user_type"));
+                    sess.setStatus(resultSet.getString("user_status"));
                 return true;
+                }else{
+                    return false;
+                }
+                
             }else{
                 return false;
             }
             
-        }catch (SQLException ex) {
+        }catch (SQLException | NoSuchAlgorithmException ex) {
             return false;
         }
 
@@ -187,6 +205,7 @@ public class loginform extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       
+        Session sess = Session.getInstance();
         
         if(loginAcc(username.getText(), password.getText())){
             if(!status.equals("Active")){
@@ -195,13 +214,19 @@ public class loginform extends javax.swing.JFrame {
                 if(type.equals("Admin")){
                     JOptionPane.showMessageDialog(null, "Login Successfully!");
                     admindashboard ap = new admindashboard();
-                    ap.uname.setText(""+lname);
+                    ap.uname.setText(""+sess.getLname());
                     ap.setVisible(true);
                     this.dispose();
                 }else if(type.equals("User")){
                     JOptionPane.showMessageDialog(null, "Login Successfully!");
                     userdashboard up = new userdashboard();
-                    up.bname.setText(""+lname);
+                    
+                    up.ids.setText(""+sess.getUid());
+                    up.name.setText(""+sess.getFname());
+                    up.email.setText(""+sess.getEmail());
+                    up.username.setText(""+sess.getUsername());
+                    
+                    up.bname.setText(""+sess.getLname());
                     up.setVisible(true);
                     this.dispose();
                 }else{

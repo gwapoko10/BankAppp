@@ -5,6 +5,7 @@
  */
 package internalPages;
 
+import admin.admindashboard;
 import config.dbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -76,40 +77,30 @@ public class userform extends javax.swing.JFrame {
         jScrollPane1.setBounds(142, 90, 590, 430);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("HOME");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(603, 28, 116, 28);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USERS FORM!");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(58, 28, 236, 29);
 
         panel1.add(jPanel1);
         jPanel1.setBounds(0, 0, 740, 90);
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel2.setLayout(null);
 
         jButton1.setText("ADD");
         jButton1.setActionCommand("");
@@ -118,6 +109,9 @@ public class userform extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(32, 184, 78, 30);
+        jButton1.getAccessibleContext().setAccessibleName("");
 
         jButton2.setText("EDIT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -125,39 +119,26 @@ public class userform extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(32, 232, 78, 30);
 
         jButton3.setText("DELETE");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(32, 280, 78, 30);
 
         jButton4.setText("BACK");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(184, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-        );
-
-        jButton1.getAccessibleContext().setAccessibleName("");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton4);
+        jButton4.setBounds(32, 368, 78, 31);
 
         panel1.add(jPanel2);
         jPanel2.setBounds(0, 90, 140, 430);
@@ -182,9 +163,6 @@ public class userform extends javax.swing.JFrame {
 
 
 
-
-
-
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -197,19 +175,20 @@ public class userform extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Please Select an Item!");
         }else{
             TableModel model = usertable.getModel();
-            updatePage up = new updatePage();
-            up.idnumber.setText(""+model.getValueAt(rowindex, 0));
+            updatepage up = new updatepage();
+            up.regid.setText(""+model.getValueAt(rowindex, 0));
             up.fname.setText(""+model.getValueAt(rowindex, 1));
             up.lname.setText(""+model.getValueAt(rowindex, 2));
             up.email.setText(""+model.getValueAt(rowindex, 3));
             up.username.setText("");
-            up.password.setText("");
-            if(up.accounttype.getSelectedItem().equals("User")){
-                up.accounttype.setSelectedItem("User");
-            }else if(up.accounttype.getSelectedItem().equals("Admin")){
-                up.accounttype.setSelectedItem("Admin");
-            }              
-            up.accountstatus.setSelectedItem(model.getValueAt(rowindex, 4));
+            up.pass.setText("");
+            if(up.acctype.getSelectedItem().equals("User")){
+                up.acctype.setSelectedItem("User");
+            }else if(up.acctype.getSelectedItem().equals("Admin")){
+                up.acctype.setSelectedItem("Admin");
+            } 
+            
+            up.status.setSelectedItem(model.getValueAt(rowindex, 4));
             
             up.setVisible(true);
             up.action = "Update";
@@ -218,17 +197,56 @@ public class userform extends javax.swing.JFrame {
             
             this.dispose();
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }
+          
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        
+        admindashboard ad = new admindashboard();
+        ad.setVisible(true);
+        this.dispose();
+        
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        
+         admindashboard ad = new admindashboard();
+         ad.setVisible(true);
+         this.dispose();
+        
+        
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        
+        
+        int rowIndex = usertable.getSelectedRow();
+        if(rowIndex < 0 ){
+            JOptionPane.showMessageDialog(null, "Please select data first from the table!");
+        }else{
+            TableModel model = usertable.getModel();
+            Object value = model.getValueAt(rowIndex,0);
+            String id = value.toString();
+            int a = JOptionPane.showConfirmDialog(null, "Are you sure to delete id "+id+"?");
+            if(a == JOptionPane.YES_OPTION){
+                dbConnector dbc = new dbConnector();
+                int u_id = Integer.parseInt(id);
+                dbc.deleteData(u_id,"tbl_user");
+                displayData();
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

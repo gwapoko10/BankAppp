@@ -5,6 +5,12 @@
  */
 package internalPages;
 
+import admin.admindashboard;
+import config.dbConnector;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SCC
@@ -17,7 +23,56 @@ public class updatepage extends javax.swing.JFrame {
     public updatepage() {
         initComponents();
     }
+    
+    public static String us, em;
+    
+    public boolean duplicateCheck(){
+        
+        dbConnector dbc = new dbConnector();
+        
+        try{
+            String query = "SELECT * FROM tbl_user  WHERE u_username = '" + username.getText() + "' OR u_email = '" + email.getText() + "'";
+            ResultSet resultSet = dbc.getData(query);
+            
+            if(resultSet.next()){
+                
+                em = resultSet.getString("u_email");
+                System.out.println(""+em);
+                if(em.equals(email.getText())){
+                    JOptionPane.showMessageDialog(null, "Email is already used!");
+                    email.setText("");
+                }
+                
+                us = resultSet.getString("u_username");
+                System.out.println(""+us);
+                if(us.equals(username.getText())){
+                    JOptionPane.showMessageDialog(null, "Username is already used!");
+                    username.setText("");
+                }
+                
+                return true;
+                
+            }else{
+                return false;
+            }
+            
+        }catch (SQLException ex) {
+            System.out.println(""+ex);
+            return false;
+        }
+    }
+    
+        public void close(){
+            
+            this.dispose();
+            userform md = new userform();
+            md.setVisible(true);
+            
+        }
 
+    
+    
+    static String action;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,10 +97,11 @@ public class updatepage extends javax.swing.JFrame {
         acctype = new javax.swing.JComboBox<>();
         pass = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        regid = new javax.swing.JTextField();
         label = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,44 +110,71 @@ public class updatepage extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         id.setBackground(new java.awt.Color(0, 102, 255));
+        id.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("First name:");
+        id.add(jLabel1);
+        jLabel1.setBounds(30, 54, 85, 30);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Last name:");
+        id.add(jLabel2);
+        jLabel2.setBounds(30, 90, 85, 29);
 
         fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fnameActionPerformed(evt);
             }
         });
+        id.add(fname);
+        fname.setBounds(120, 50, 156, 30);
+
+        lname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lnameActionPerformed(evt);
+            }
+        });
+        id.add(lname);
+        lname.setBounds(120, 90, 156, 24);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
+        id.add(jLabel4);
+        jLabel4.setBounds(30, 130, 85, 22);
 
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
             }
         });
+        id.add(email);
+        email.setBounds(120, 120, 156, 30);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Username:");
+        id.add(jLabel5);
+        jLabel5.setBounds(30, 158, 85, 25);
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password:");
+        id.add(jLabel6);
+        jLabel6.setBounds(30, 190, 85, 25);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Type:");
+        id.add(jLabel7);
+        jLabel7.setBounds(30, 215, 85, 25);
 
         username.setEnabled(false);
+        id.add(username);
+        username.setBounds(120, 160, 156, 25);
 
         acctype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         acctype.addActionListener(new java.awt.event.ActionListener() {
@@ -99,14 +182,22 @@ public class updatepage extends javax.swing.JFrame {
                 acctypeActionPerformed(evt);
             }
         });
+        id.add(acctype);
+        acctype.setBounds(119, 215, 156, 25);
 
         pass.setEnabled(false);
+        id.add(pass);
+        pass.setBounds(119, 190, 156, 23);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("ID");
+        id.add(jLabel8);
+        jLabel8.setBounds(30, 26, 85, 17);
 
-        jTextField1.setEnabled(false);
+        regid.setEnabled(false);
+        id.add(regid);
+        regid.setBounds(119, 23, 156, 20);
 
         label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,100 +207,36 @@ public class updatepage extends javax.swing.JFrame {
                 labelMouseClicked(evt);
             }
         });
+        id.add(label);
+        label.setBounds(200, 280, 80, 25);
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Status");
+        id.add(jLabel9);
+        jLabel9.setBounds(30, 246, 85, 23);
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
+        id.add(status);
+        status.setBounds(119, 248, 156, 23);
 
-        javax.swing.GroupLayout idLayout = new javax.swing.GroupLayout(id);
-        id.setLayout(idLayout);
-        idLayout.setHorizontalGroup(
-            idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, idLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(idLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, idLayout.createSequentialGroup()
-                        .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fname)
-                            .addComponent(username)
-                            .addComponent(acctype, 0, 156, Short.MAX_VALUE)
-                            .addComponent(lname)
-                            .addComponent(email)
-                            .addComponent(pass)
-                            .addComponent(jTextField1)
-                            .addComponent(status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(545, 545, 545))
-        );
-        idLayout.setVerticalGroup(
-            idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(idLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(idLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(idLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(idLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(idLayout.createSequentialGroup()
-                        .addComponent(pass)
-                        .addGap(2, 2, 2)))
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(acctype, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(idLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(idLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
-        );
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("BACK");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
+        id.add(jLabel10);
+        jLabel10.setBounds(120, 280, 70, 30);
 
         jPanel1.add(id);
         id.setBounds(0, 70, 820, 420);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("REGISTRATION FORM!");
+        jLabel3.setText("UPDATE FORM!");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(20, 20, 220, 40);
 
@@ -251,10 +278,39 @@ public class updatepage extends javax.swing.JFrame {
 
     private void labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMouseClicked
 
-        
-
+        if(action.equals("Update")){
+            
+            if(duplicateCheck()){
+                System.out.println("Duplicate Exist");
+                
+                }else{
+            
+                dbConnector dbc = new dbConnector();
+                dbc.updateData("UPDATE tbl_user SET "
+                    + " user_fname =   '"+fname.getText()+"',"
+                    + " user_lname =   '"+lname.getText()+"',"
+                    + " user_email =   '"+email.getText()+"',"
+                    + " user_status = '"+status.getSelectedItem()+"'"
+                    + "WHERE user_id = '"+regid.getText()+"'");
+                close();
+                }
+            }
 
     }//GEN-LAST:event_labelMouseClicked
+
+    private void lnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lnameActionPerformed
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+       
+           admindashboard ad = new admindashboard();
+           ad.setVisible(true);
+           this.dispose();
+        
+        
+        
+    }//GEN-LAST:event_jLabel10MouseClicked
 
     /**
      * @param args the command line arguments
@@ -292,11 +348,12 @@ public class updatepage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> acctype;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField fname;
+    public javax.swing.JComboBox<String> acctype;
+    public javax.swing.JTextField email;
+    public javax.swing.JTextField fname;
     private javax.swing.JPanel id;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -306,11 +363,11 @@ public class updatepage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JLabel label;
-    private javax.swing.JTextField lname;
+    public javax.swing.JTextField lname;
     public javax.swing.JPasswordField pass;
-    private javax.swing.JComboBox<String> status;
+    public javax.swing.JTextField regid;
+    public javax.swing.JComboBox<String> status;
     public javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
