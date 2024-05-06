@@ -221,7 +221,7 @@ public class loginform extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Login Successfully!");
                     userdashboard up = new userdashboard();
                     
-                    up.ids.setText(""+sess.getUid());
+                    up.availbal.setText(""+sess.getUid());
                     up.name.setText(""+sess.getFname());
                     up.email.setText(""+sess.getEmail());
                     up.username.setText(""+sess.getUsername());

@@ -40,11 +40,14 @@ public class userdashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         bname = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         username = new javax.swing.JTextField();
@@ -52,9 +55,11 @@ public class userdashboard extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        ids = new javax.swing.JTextField();
+        availbal = new javax.swing.JTextField();
         name = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        ids1 = new javax.swing.JTextField();
 
         jLabel4.setText("jLabel4");
 
@@ -65,6 +70,41 @@ public class userdashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel5.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("USER DASHBOARD");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-admin-96.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
+
+        bname.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bname.setForeground(new java.awt.Color(255, 255, 255));
+        bname.setText("USER");
+        jPanel2.add(bname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 700, 120);
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("REPORTS");
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 100, 30));
+
+        jButton2.setText("DEPOSIT");
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 100, 30));
+
+        jButton3.setText("WITHDRAW");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, 30));
+
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,26 +114,7 @@ public class userdashboard extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 28, -1, -1));
-
-        jLabel5.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("USER DASHBOARD");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 37, -1, -1));
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 700, 120);
-
-        jPanel3.setBackground(new java.awt.Color(0, 102, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-admin-96.png"))); // NOI18N
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 31, -1, -1));
-
-        bname.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bname.setText("USER");
-        jPanel3.add(bname, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 133, -1, -1));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 80, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,43 +124,51 @@ public class userdashboard extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 287, 140, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 140, -1));
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 110, 170, 380);
+        jPanel3.setBounds(0, 120, 170, 380);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel4.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 200, 40));
+        jPanel4.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 200, 40));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Username:");
         jLabel6.setToolTipText("");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 217, 120, 30));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 120, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Email:");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 167, 130, 30));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 130, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setText("Name:");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 117, 120, 30));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 120, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel9.setText("ID:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 67, 50, 30));
+        jLabel9.setText("Available balance:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 120, 30));
 
-        ids.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        ids.setEnabled(false);
-        jPanel4.add(ids, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 57, 200, 40));
+        availbal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        availbal.setEnabled(false);
+        jPanel4.add(availbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 200, 40));
 
         name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel4.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 200, 40));
+        jPanel4.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 200, 40));
 
         email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel4.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 200, 40));
+        jPanel4.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 200, 40));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel10.setText("ID:");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 50, 30));
+
+        ids1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        ids1.setEnabled(false);
+        jPanel4.add(ids1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 200, 40));
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(170, 110, 530, 370);
@@ -148,7 +177,7 @@ public class userdashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +202,7 @@ public class userdashboard extends javax.swing.JFrame {
        
         dbConnector dbc = new dbConnector();
         try{
-            String sql = "SELECT * FROM tbl_user WHERE user_id = '"+ids.getText()+"'";
+            String sql = "SELECT * FROM tbl_user WHERE user_id = '"+availbal.getText()+"'";
             ResultSet resultSet = dbc.getData(sql);
             if(resultSet.next()){
                 idd = resultSet.getString("user_id");
@@ -193,6 +222,10 @@ public class userdashboard extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,10 +266,15 @@ public class userdashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTextField availbal;
     public javax.swing.JLabel bname;
     public javax.swing.JTextField email;
-    public javax.swing.JTextField ids;
+    public javax.swing.JTextField ids1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
