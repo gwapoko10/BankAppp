@@ -31,19 +31,19 @@ public class updatepage extends javax.swing.JFrame {
         dbConnector dbc = new dbConnector();
         
         try{
-            String query = "SELECT * FROM tbl_user  WHERE u_username = '" + username.getText() + "' OR u_email = '" + email.getText() + "'";
+            String query = "SELECT * FROM tbl_user  WHERE user_username = '" + username.getText() + "' OR user_email = '" + email.getText() + "'";
             ResultSet resultSet = dbc.getData(query);
             
             if(resultSet.next()){
                 
-                em = resultSet.getString("u_email");
+                em = resultSet.getString("user_email");
                 System.out.println(""+em);
                 if(em.equals(email.getText())){
                     JOptionPane.showMessageDialog(null, "Email is already used!");
                     email.setText("");
                 }
                 
-                us = resultSet.getString("u_username");
+                us = resultSet.getString("user_username");
                 System.out.println(""+us);
                 if(us.equals(username.getText())){
                     JOptionPane.showMessageDialog(null, "Username is already used!");

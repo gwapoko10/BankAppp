@@ -35,6 +35,7 @@ public class withdraw extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -51,6 +52,7 @@ public class withdraw extends javax.swing.JFrame {
         jPanel3.setBounds(0, 0, 700, 90);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(700, 390));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -76,9 +78,17 @@ public class withdraw extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CONFIRM!");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, -1, 20));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 700, 100));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/withdraw.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 90, 700, 390);
@@ -89,6 +99,15 @@ public class withdraw extends javax.swing.JFrame {
     private void withcashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withcashActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_withcashActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+       
+        userdashboard user = new userdashboard();
+        user.setVisible(true);
+        this.dispose();
+        
+        
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -130,6 +149,7 @@ public class withdraw extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

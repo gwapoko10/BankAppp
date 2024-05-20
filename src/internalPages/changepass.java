@@ -38,9 +38,6 @@ public class changepass extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         bname = new javax.swing.JLabel();
@@ -55,48 +52,26 @@ public class changepass extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 255));
-        jPanel2.setLayout(null);
-
-        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Logout");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(581, 28, 80, 28);
-
-        jLabel5.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("CHANGE PASS!");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(40, 30, 221, 28);
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 700, 111);
-
         jPanel3.setBackground(new java.awt.Color(0, 102, 255));
         jPanel3.setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-admin-96.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(43, 31, 96, 96);
+        jLabel2.setBounds(43, 31, 64, 64);
 
         bname.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bname.setText("USER");
         jPanel3.add(bname);
-        bname.setBounds(74, 133, 43, 22);
+        bname.setBounds(50, 100, 43, 22);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,6 +159,31 @@ public class changepass extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(170, 110, 530, 400);
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel2.setLayout(null);
+
+        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Logout");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(581, 28, 80, 28);
+
+        jLabel5.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("CHANGE PASS!");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(110, 20, 221, 28);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(-10, 0, 710, 160);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

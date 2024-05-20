@@ -39,14 +39,14 @@ public class registrationform extends javax.swing.JFrame {
             
             if(resultSet.next()){
                 
-                em = resultSet.getString("u_email");
+                em = resultSet.getString("user_email");
                 System.out.println(""+em);
                 if(em.equals(email.getText())){
                     JOptionPane.showMessageDialog(null, "Email is already used!");
                     email.setText("");
                 }
                 
-                us = resultSet.getString("u_username");
+                us = resultSet.getString("user_username");
                 System.out.println(""+us);
                 if(us.equals(username.getText())){
                     JOptionPane.showMessageDialog(null, "Username is already used!");
@@ -124,7 +124,7 @@ public class registrationform extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("First name:");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(30, 39, 85, 30);
+        jLabel1.setBounds(30, 30, 85, 30);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,9 +138,9 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(fname);
-        fname.setBounds(119, 49, 156, 20);
+        fname.setBounds(120, 30, 156, 30);
         jPanel3.add(lname);
-        lname.setBounds(119, 78, 156, 24);
+        lname.setBounds(120, 70, 156, 30);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,7 +154,7 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(email);
-        email.setBounds(119, 115, 156, 22);
+        email.setBounds(119, 107, 156, 30);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,9 +172,9 @@ public class registrationform extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Type:");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(30, 200, 85, 25);
+        jLabel7.setBounds(30, 220, 85, 25);
         jPanel3.add(username);
-        username.setBounds(119, 144, 156, 25);
+        username.setBounds(119, 144, 156, 30);
 
         acctype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         acctype.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +183,7 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(acctype);
-        acctype.setBounds(119, 201, 156, 25);
+        acctype.setBounds(120, 220, 156, 25);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -192,7 +192,7 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(119, 244, 65, 23);
+        jButton1.setBounds(120, 260, 70, 23);
 
         jButton2.setText("Register");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -201,12 +201,12 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton2);
-        jButton2.setBounds(194, 244, 81, 23);
+        jButton2.setBounds(200, 260, 81, 23);
         jPanel3.add(pass);
-        pass.setBounds(119, 175, 156, 23);
+        pass.setBounds(120, 183, 156, 30);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 70, 820, 420);
+        jPanel3.setBounds(0, 70, 740, 350);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -218,11 +218,11 @@ public class registrationform extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
         );
 
         pack();
@@ -269,8 +269,8 @@ public class registrationform extends javax.swing.JFrame {
             
             
             
-                try{
-                String pw = passwordHasher.hashPassword(pass.getText());
+               try{
+                String password = passwordHasher.hashPassword(pass.getText());
                 if(dbc.insertData("INSERT INTO tbl_user("
                     + "user_fname,"
                     + "user_lname,"
@@ -283,10 +283,10 @@ public class registrationform extends javax.swing.JFrame {
                     + "'"+lname.getText()+"',"
                     + "'"+email.getText()+"',"
                     + "'"+username.getText()+"',"
-                    + "'"+pw+"',"
+                    + "'"+password+"',"
                     + "'"+acctype.getSelectedItem()+"','Pending')")){
             
-                JOptionPane.showMessageDialog(null, "Inserted Successfully");
+                JOptionPane.showMessageDialog(null, "Inserted Successfully, wait for admin!");
                 loginform lf = new loginform();
                 lf.setVisible(true);
                 this.dispose();

@@ -82,8 +82,6 @@ public class loginform extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -92,17 +90,16 @@ public class loginform extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximizedBounds(new java.awt.Rectangle(736, 415, 415, 415));
+        setMaximumSize(new java.awt.Dimension(736, 415));
+        setMinimumSize(new java.awt.Dimension(736, 415));
+        getContentPane().setLayout(null);
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 255));
-        jPanel4.setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("LOGIN FORM!");
-        jPanel4.add(jLabel1);
-        jLabel1.setBounds(290, 70, 221, 44);
+        jPanel3.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel3.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
         jPanel1.setLayout(null);
@@ -163,35 +160,17 @@ public class loginform extends javax.swing.JFrame {
         jPanel1.add(password);
         password.setBounds(180, 80, 190, 30);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jPanel3.add(jPanel1);
+        jPanel1.setBounds(-10, 170, 750, 240);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 465, Short.MAX_VALUE)
-                .addGap(19, 19, 19))
-        );
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("LOGIN FORM");
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(280, 60, 150, 50);
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(0, 3, 737, 410);
 
         pack();
         setLocationRelativeTo(null);
@@ -221,11 +200,7 @@ public class loginform extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Login Successfully!");
                     userdashboard up = new userdashboard();
                     
-                    up.availbal.setText(""+sess.getUid());
-                    up.name.setText(""+sess.getFname());
-                    up.email.setText(""+sess.getEmail());
-                    up.username.setText(""+sess.getUsername());
-                    
+                   
                     up.bname.setText(""+sess.getLname());
                     up.setVisible(true);
                     this.dispose();
@@ -297,12 +272,11 @@ public class loginform extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables

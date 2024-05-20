@@ -43,27 +43,22 @@ public class userdashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         bname = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        username = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         availbal = new javax.swing.JTextField();
-        name = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        ids1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(699, 481));
+        getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
 
@@ -74,7 +69,7 @@ public class userdashboard extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("USER DASHBOARD");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-admin-96.png"))); // NOI18N
@@ -83,149 +78,110 @@ public class userdashboard extends javax.swing.JFrame {
         bname.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bname.setForeground(new java.awt.Color(255, 255, 255));
         bname.setText("USER");
-        jPanel2.add(bname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        jPanel2.add(bname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 50, -1));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("LOGOUT");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 70, 30));
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 700, 120);
 
-        jPanel3.setBackground(new java.awt.Color(0, 102, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("REPORTS");
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 100, 30));
+        availbal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        availbal.setEnabled(false);
+        jPanel4.add(availbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 200, 30));
 
-        jButton2.setText("DEPOSIT");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 100, 30));
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel9.setText("Available balance:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 120, 30));
 
-        jButton3.setText("WITHDRAW");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, 30));
-
-        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Logout");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 80, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("CHANGE PASSWORD");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/withdraw.png"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 140, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 110, 90));
 
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 120, 170, 380);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deposit.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/withdraw1.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, 90));
 
-        username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel4.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 200, 40));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("REPORTS");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 90, -1));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText("Username:");
-        jLabel6.setToolTipText("");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 120, 30));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("DEPOSIT");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 80, -1));
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("Email:");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 130, 30));
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel8.setText("Name:");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 120, 30));
-
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel9.setText("Available balance:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 120, 30));
-
-        availbal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        availbal.setEnabled(false);
-        jPanel4.add(availbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 200, 40));
-
-        name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel4.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 200, 40));
-
-        email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel4.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 200, 40));
-
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel10.setText("ID:");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 50, 30));
-
-        ids1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        ids1.setEnabled(false);
-        jPanel4.add(ids1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 200, 40));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setText("WITHDRAW");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 90, -1));
 
         jPanel1.add(jPanel4);
-        jPanel4.setBounds(170, 110, 530, 370);
+        jPanel4.setBounds(0, 120, 700, 360);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 699, 481);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
        
-        loginform login = new loginform();
-        
-        login.setVisible(true);
+        deposit deposit = new deposit();
+        deposit.setVisible(true);
         this.dispose();
-        JOptionPane.showMessageDialog(null, "Logout Success!");
         
-    }//GEN-LAST:event_jLabel1MouseClicked
+        
+    }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
        
-        dbConnector dbc = new dbConnector();
-        try{
-            String sql = "SELECT * FROM tbl_user WHERE user_id = '"+availbal.getText()+"'";
-            ResultSet resultSet = dbc.getData(sql);
-            if(resultSet.next()){
-                idd = resultSet.getString("user_id");
-            }
-                changepass cp = new changepass();
-                cp.id.setText(""+idd);
-                cp.setVisible(true);
-                this.dispose();
-            
-            
-        }catch (SQLException ex) {
-            
-        }
-        
-        
-        
-        
+        withdraw withdraw = new withdraw();
+        withdraw.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+      
+        reports reports = new reports();
+        reports.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+     
+        loginform login = new loginform();
+        login.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     /**
      * @param args the command line arguments
@@ -268,26 +224,19 @@ public class userdashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextField availbal;
     public javax.swing.JLabel bname;
-    public javax.swing.JTextField email;
-    public javax.swing.JTextField ids1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    public javax.swing.JTextField name;
-    public javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

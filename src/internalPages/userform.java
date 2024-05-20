@@ -64,6 +64,7 @@ public class userform extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(738, 525));
@@ -94,7 +95,7 @@ public class userform extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USERS FORM!");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(58, 28, 236, 29);
+        jLabel2.setBounds(250, 30, 236, 29);
 
         panel1.add(jPanel1);
         jPanel1.setBounds(0, 0, 740, 90);
@@ -139,6 +140,11 @@ public class userform extends javax.swing.JFrame {
         });
         jPanel2.add(jButton4);
         jButton4.setBounds(32, 368, 78, 31);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(40, 40, 70, 70);
 
         panel1.add(jPanel2);
         jPanel2.setBounds(0, 90, 140, 430);
@@ -290,6 +296,7 @@ public class userform extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

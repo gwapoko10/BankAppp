@@ -35,11 +35,13 @@ public class deposit extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         depcash = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,6 +49,11 @@ public class deposit extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CONFIRM!");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, -1, 20));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -54,7 +61,8 @@ public class deposit extends javax.swing.JFrame {
         jLabel5.setText("CANCEL");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 20));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 700, 90));
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 390, 710, 90);
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,13 +70,15 @@ public class deposit extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("DEPOSIT CASH!");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 170, 34));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 170, 34));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 90));
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(0, 0, 700, 90);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("ENTER AMOUNT TO DEPOSIT");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 200, 30));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(250, 180, 200, 30);
 
         depcash.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         depcash.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +86,12 @@ public class deposit extends javax.swing.JFrame {
                 depcashActionPerformed(evt);
             }
         });
-        jPanel1.add(depcash, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 230, 30));
+        jPanel1.add(depcash);
+        depcash.setBounds(230, 220, 230, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deposit.png"))); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(100, 180, 100, 90);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
 
@@ -86,6 +101,13 @@ public class deposit extends javax.swing.JFrame {
     private void depcashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depcashActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_depcashActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+     
+        userdashboard user = new userdashboard();
+        user.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -126,6 +148,7 @@ public class deposit extends javax.swing.JFrame {
     private javax.swing.JTextField depcash;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

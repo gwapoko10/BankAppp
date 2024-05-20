@@ -134,9 +134,9 @@ public class adminApplicants extends javax.swing.JFrame {
             }
         });
         id.add(fname);
-        fname.setBounds(119, 64, 156, 20);
+        fname.setBounds(120, 60, 156, 20);
         id.add(lname);
-        lname.setBounds(119, 93, 156, 24);
+        lname.setBounds(120, 90, 156, 24);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,7 +150,7 @@ public class adminApplicants extends javax.swing.JFrame {
             }
         });
         id.add(email);
-        email.setBounds(119, 130, 156, 22);
+        email.setBounds(120, 120, 156, 22);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,7 +170,7 @@ public class adminApplicants extends javax.swing.JFrame {
         id.add(jLabel7);
         jLabel7.setBounds(30, 215, 85, 25);
         id.add(username);
-        username.setBounds(119, 159, 156, 25);
+        username.setBounds(120, 150, 156, 25);
 
         acctype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         acctype.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@ public class adminApplicants extends javax.swing.JFrame {
         id.add(acctype);
         acctype.setBounds(119, 215, 156, 25);
         id.add(pass);
-        pass.setBounds(119, 190, 156, 23);
+        pass.setBounds(120, 180, 156, 23);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
