@@ -9,6 +9,7 @@ import admin.admindashboard;
 import config.Session;
 import config.dbConnector;
 import config.passwordHasher;
+import java.awt.event.KeyEvent;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -90,6 +91,7 @@ public class loginform extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,7 +100,7 @@ public class loginform extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(736, 415));
         getContentPane().setLayout(null);
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
@@ -108,13 +110,13 @@ public class loginform extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USERNAME:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(80, 50, 100, 17);
+        jLabel2.setBounds(310, 40, 100, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PASSWORD:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(80, 90, 100, 17);
+        jLabel3.setBounds(310, 110, 100, 17);
 
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +124,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(username);
-        username.setBounds(181, 47, 190, 30);
+        username.setBounds(260, 70, 190, 30);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +133,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(180, 120, 80, 23);
+        jButton1.setBounds(260, 170, 80, 23);
 
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +142,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(270, 120, 100, 23);
+        jButton2.setBounds(350, 170, 100, 23);
 
         jButton3.setText("Create account");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +151,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(180, 150, 190, 23);
+        jButton3.setBounds(260, 210, 190, 23);
 
         password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         password.addActionListener(new java.awt.event.ActionListener() {
@@ -157,17 +159,26 @@ public class loginform extends javax.swing.JFrame {
                 passwordActionPerformed(evt);
             }
         });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
+            }
+        });
         jPanel1.add(password);
-        password.setBounds(180, 80, 190, 30);
+        password.setBounds(260, 130, 190, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, -20, 740, 420);
 
         jPanel3.add(jPanel1);
-        jPanel1.setBounds(-10, 170, 750, 240);
+        jPanel1.setBounds(0, 80, 750, 330);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("LOGIN FORM");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(280, 60, 150, 50);
+        jLabel4.setBounds(290, 20, 150, 50);
 
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 3, 737, 410);
@@ -233,6 +244,39 @@ public class loginform extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+       if(evt.getKeyCode() == KeyEvent.VK_ENTER){ 
+        Session sess = Session.getInstance();
+        
+        if(loginAcc(username.getText(), password.getText())){
+            if(!status.equals("Active")){
+                JOptionPane.showMessageDialog(null,"Pending Account, Wait for the Admin to Approval!");
+            }else{
+                if(type.equals("Admin")){
+                    JOptionPane.showMessageDialog(null, "Login Successfully!");
+                    admindashboard ap = new admindashboard();
+                    ap.uname.setText(""+sess.getLname());
+                    ap.setVisible(true);
+                    this.dispose();
+                }else if(type.equals("User")){
+                    JOptionPane.showMessageDialog(null, "Login Successfully!");
+                    userdashboard up = new userdashboard();
+                    
+                   
+                    up.bname.setText(""+sess.getLname());
+                    up.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No account type, Contact the Admin!");
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Invalid Account!");
+            password.setText("");
+        }      
+       }
+    }//GEN-LAST:event_passwordKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -272,6 +316,7 @@ public class loginform extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

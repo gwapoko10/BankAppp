@@ -102,11 +102,14 @@ public class updatepage extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
         id.setBackground(new java.awt.Color(0, 102, 255));
@@ -130,7 +133,7 @@ public class updatepage extends javax.swing.JFrame {
             }
         });
         id.add(fname);
-        fname.setBounds(120, 50, 156, 30);
+        fname.setBounds(120, 60, 156, 20);
 
         lname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +200,7 @@ public class updatepage extends javax.swing.JFrame {
 
         regid.setEnabled(false);
         id.add(regid);
-        regid.setBounds(119, 23, 156, 20);
+        regid.setBounds(120, 30, 156, 20);
 
         label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,7 +211,7 @@ public class updatepage extends javax.swing.JFrame {
             }
         });
         id.add(label);
-        label.setBounds(200, 280, 80, 25);
+        label.setBounds(250, 280, 80, 25);
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -231,14 +234,22 @@ public class updatepage extends javax.swing.JFrame {
         id.add(jLabel10);
         jLabel10.setBounds(120, 280, 70, 30);
 
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
+        jLabel11.setText("jLabel11");
+        id.add(jLabel11);
+        jLabel11.setBounds(0, 0, 940, 420);
+
         jPanel1.add(id);
         id.setBounds(0, 70, 820, 420);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("UPDATE FORM!");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 20, 220, 40);
+        jLabel3.setBounds(340, 10, 220, 40);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(280, 10, 60, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -262,6 +273,7 @@ public class updatepage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
@@ -354,6 +366,8 @@ public class updatepage extends javax.swing.JFrame {
     private javax.swing.JPanel id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -104,13 +104,15 @@ public class adminApplicants extends javax.swing.JFrame {
         label = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(712, 499));
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
         id.setBackground(new java.awt.Color(0, 102, 255));
@@ -202,7 +204,7 @@ public class adminApplicants extends javax.swing.JFrame {
             }
         });
         id.add(label);
-        label.setBounds(208, 282, 67, 25);
+        label.setBounds(120, 280, 67, 25);
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,14 +216,22 @@ public class adminApplicants extends javax.swing.JFrame {
         id.add(status);
         status.setBounds(119, 248, 156, 23);
 
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
+        jLabel10.setText("jLabel10");
+        id.add(jLabel10);
+        jLabel10.setBounds(0, -30, 740, 510);
+
         jPanel1.add(id);
         id.setBounds(0, 70, 820, 420);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("REGISTRATION FORM!");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 20, 220, 40);
+        jLabel3.setBounds(260, 20, 220, 40);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/shet.png"))); // NOI18N
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(190, 10, 70, 60);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(-6, -3, 820, 490);
@@ -333,6 +343,8 @@ public class adminApplicants extends javax.swing.JFrame {
     private javax.swing.JTextField fname;
     private javax.swing.JPanel id;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

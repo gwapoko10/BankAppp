@@ -59,12 +59,14 @@ public class userform extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(738, 525));
@@ -95,7 +97,12 @@ public class userform extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USERS FORM!");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(250, 30, 236, 29);
+        jLabel2.setBounds(290, 30, 236, 29);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(0, -20, 730, 140);
 
         panel1.add(jPanel1);
         jPanel1.setBounds(0, 0, 740, 90);
@@ -111,7 +118,7 @@ public class userform extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(32, 184, 78, 30);
+        jButton1.setBounds(30, 70, 78, 30);
         jButton1.getAccessibleContext().setAccessibleName("");
 
         jButton2.setText("EDIT");
@@ -121,7 +128,7 @@ public class userform extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(32, 232, 78, 30);
+        jButton2.setBounds(30, 130, 78, 30);
 
         jButton3.setText("DELETE");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +137,7 @@ public class userform extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton3);
-        jButton3.setBounds(32, 280, 78, 30);
+        jButton3.setBounds(30, 190, 78, 30);
 
         jButton4.setText("BACK");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -139,12 +146,17 @@ public class userform extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton4);
-        jButton4.setBounds(32, 368, 78, 31);
+        jButton4.setBounds(30, 310, 78, 31);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel2.add(jLabel3);
         jLabel3.setBounds(40, 40, 70, 70);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\pera.jpg")); // NOI18N
+        jLabel4.setText("jLabel4");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(0, 0, 180, 630);
 
         panel1.add(jPanel2);
         jPanel2.setBounds(0, 90, 140, 430);
@@ -297,6 +309,8 @@ public class userform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
