@@ -99,8 +99,8 @@ public class registrationform extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         pass = new javax.swing.JPasswordField();
-        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,13 +125,13 @@ public class registrationform extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("First name:");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(30, 30, 85, 30);
+        jLabel1.setBounds(220, 40, 85, 30);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Last name:");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(30, 75, 85, 29);
+        jLabel2.setBounds(220, 80, 85, 29);
 
         fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,15 +139,15 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(fname);
-        fname.setBounds(120, 30, 156, 30);
+        fname.setBounds(320, 30, 156, 30);
         jPanel3.add(lname);
-        lname.setBounds(120, 70, 156, 30);
+        lname.setBounds(320, 70, 156, 30);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(30, 115, 85, 22);
+        jLabel4.setBounds(220, 120, 85, 22);
 
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,27 +155,27 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(email);
-        email.setBounds(119, 107, 156, 30);
+        email.setBounds(320, 110, 156, 30);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Username:");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(30, 143, 85, 25);
+        jLabel5.setBounds(220, 160, 85, 25);
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password:");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(30, 175, 85, 25);
+        jLabel6.setBounds(220, 200, 85, 25);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Type:");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(30, 220, 85, 25);
+        jLabel7.setBounds(220, 230, 85, 25);
         jPanel3.add(username);
-        username.setBounds(119, 144, 156, 30);
+        username.setBounds(320, 150, 156, 30);
 
         acctype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         acctype.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +184,7 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(acctype);
-        acctype.setBounds(120, 220, 156, 25);
+        acctype.setBounds(320, 230, 156, 25);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +193,7 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(120, 260, 70, 23);
+        jButton1.setBounds(320, 270, 70, 23);
 
         jButton2.setText("Register");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -202,14 +202,9 @@ public class registrationform extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton2);
-        jButton2.setBounds(200, 260, 81, 23);
+        jButton2.setBounds(400, 270, 81, 23);
         jPanel3.add(pass);
-        pass.setBounds(120, 183, 156, 30);
-
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
-        jLabel8.setText("jLabel8");
-        jPanel3.add(jLabel8);
-        jLabel8.setBounds(0, 0, 740, 380);
+        pass.setBounds(320, 190, 156, 30);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 70, 740, 350);
@@ -217,7 +212,11 @@ public class registrationform extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("REGISTRATION FORM!");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(240, 20, 220, 40);
+        jLabel3.setBounds(300, 20, 220, 40);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/shet.png"))); // NOI18N
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(240, 10, 60, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -355,7 +354,7 @@ public class registrationform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

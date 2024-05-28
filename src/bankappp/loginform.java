@@ -91,8 +91,9 @@ public class loginform extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximizedBounds(new java.awt.Rectangle(736, 415, 415, 415));
@@ -103,28 +104,29 @@ public class loginform extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USERNAME:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(310, 40, 100, 17);
+        jLabel2.setBounds(30, 140, 100, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PASSWORD:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(310, 110, 100, 17);
+        jLabel3.setBounds(30, 190, 100, 17);
 
+        username.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
         jPanel1.add(username);
-        username.setBounds(260, 70, 190, 30);
+        username.setBounds(20, 160, 150, 20);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +135,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(260, 170, 80, 23);
+        jButton1.setBounds(20, 250, 70, 23);
 
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +144,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(350, 170, 100, 23);
+        jButton2.setBounds(100, 250, 70, 23);
 
         jButton3.setText("Create account");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +153,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(260, 210, 190, 23);
+        jButton3.setBounds(20, 290, 140, 23);
 
         password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         password.addActionListener(new java.awt.event.ActionListener() {
@@ -165,20 +167,25 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(password);
-        password.setBounds(260, 130, 190, 30);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, -20, 740, 420);
-
-        jPanel3.add(jPanel1);
-        jPanel1.setBounds(0, 80, 750, 330);
+        password.setBounds(20, 210, 150, 20);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel4.setText("LOGIN FORM");
-        jPanel3.add(jLabel4);
-        jLabel4.setBounds(290, 20, 150, 50);
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("WELCOME!");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(40, 40, 150, 50);
+
+        jPanel3.add(jPanel1);
+        jPanel1.setBounds(0, 0, 190, 410);
+
+        jPanel2.setLayout(null);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/apol.png"))); // NOI18N
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(0, 0, 460, 420);
+
+        jPanel3.add(jPanel2);
+        jPanel2.setBounds(280, 0, 450, 410);
 
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 3, 737, 410);
@@ -321,6 +328,7 @@ public class loginform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;

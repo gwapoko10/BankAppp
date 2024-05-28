@@ -44,9 +44,7 @@ public class userdashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         bname = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        availbal = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -55,6 +53,7 @@ public class userdashboard extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        availbal = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -92,19 +91,11 @@ public class userdashboard extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 70, 30));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
-        jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 130));
-
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 700, 120);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        availbal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        availbal.setEnabled(false);
-        jPanel4.add(availbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 200, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setText("Available balance:");
@@ -153,7 +144,11 @@ public class userdashboard extends javax.swing.JFrame {
                 jLabel13MouseClicked(evt);
             }
         });
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 130, 30));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 130, 10));
+
+        availbal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        availbal.setText("$ 0.00");
+        jPanel4.add(availbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 150, 50));
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(0, 120, 700, 360);
@@ -248,7 +243,7 @@ public class userdashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField availbal;
+    private javax.swing.JLabel availbal;
     public javax.swing.JLabel bname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -259,7 +254,6 @@ public class userdashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

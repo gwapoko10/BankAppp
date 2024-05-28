@@ -48,14 +48,13 @@ public class changepass extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         bname = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -72,7 +71,7 @@ public class changepass extends javax.swing.JFrame {
             }
         });
         jPanel4.add(confirmpass);
-        confirmpass.setBounds(180, 180, 200, 30);
+        confirmpass.setBounds(280, 190, 200, 30);
 
         oldpass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         oldpass.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +80,7 @@ public class changepass extends javax.swing.JFrame {
             }
         });
         jPanel4.add(oldpass);
-        oldpass.setBounds(180, 90, 200, 30);
+        oldpass.setBounds(280, 100, 200, 30);
 
         newpass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         newpass.addActionListener(new java.awt.event.ActionListener() {
@@ -90,12 +89,12 @@ public class changepass extends javax.swing.JFrame {
             }
         });
         jPanel4.add(newpass);
-        newpass.setBounds(180, 130, 200, 30);
+        newpass.setBounds(280, 140, 200, 30);
 
         id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         id.setEnabled(false);
         jPanel4.add(id);
-        id.setBounds(180, 40, 200, 30);
+        id.setBounds(280, 50, 200, 30);
 
         jButton1.setText("SAVE");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -110,69 +109,52 @@ public class changepass extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton1);
-        jButton1.setBounds(370, 250, 100, 20);
+        jButton1.setBounds(460, 250, 100, 20);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3.setText("ID:");
         jPanel4.add(jLabel3);
-        jLabel3.setBounds(30, 50, 50, 30);
+        jLabel3.setBounds(130, 60, 50, 30);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4.setText("Enter new password:");
         jPanel4.add(jLabel4);
-        jLabel4.setBounds(30, 130, 150, 30);
+        jLabel4.setBounds(130, 140, 150, 30);
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel6.setText("Confirm Password:");
         jPanel4.add(jLabel6);
-        jLabel6.setBounds(30, 180, 140, 30);
+        jLabel6.setBounds(130, 190, 140, 30);
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel7.setText("Old password:");
         jPanel4.add(jLabel7);
-        jLabel7.setBounds(30, 90, 120, 30);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
-        jLabel10.setText("jLabel10");
-        jPanel4.add(jLabel10);
-        jLabel10.setBounds(0, -80, 790, 470);
-
-        jPanel1.add(jPanel4);
-        jPanel4.setBounds(110, 80, 620, 440);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(null);
-
-        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Logout");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(581, 28, 80, 28);
+        jLabel7.setBounds(130, 100, 120, 30);
 
         jLabel5.setBackground(new java.awt.Color(153, 153, 153));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setText("CHANGE PASS!");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(300, 30, 221, 28);
+        jPanel4.add(jLabel5);
+        jLabel5.setBounds(280, 10, 221, 28);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reset.png"))); // NOI18N
+        jPanel4.add(jLabel9);
+        jLabel9.setBounds(210, 0, 70, 50);
+
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(110, 110, 620, 300);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(30, 110, 64, 64);
+        jLabel2.setBounds(30, 140, 64, 64);
 
         bname.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bname.setText("USER");
         jPanel2.add(bname);
-        bname.setBounds(40, 190, 43, 22);
+        bname.setBounds(40, 220, 43, 22);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setText("    BACK");
@@ -182,11 +164,12 @@ public class changepass extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(20, 280, 80, 30);
+        jLabel8.setBounds(20, 310, 80, 30);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reset.png"))); // NOI18N
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(230, 20, 70, 50);
+        jPanel3.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel3.setLayout(null);
+        jPanel2.add(jPanel3);
+        jPanel3.setBounds(10, 0, 730, 80);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(-10, 0, 740, 420);
@@ -205,22 +188,6 @@ public class changepass extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-
-            
-        loginform login = new loginform();
-        
-        login.setVisible(true);
-        this.dispose();
-        JOptionPane.showMessageDialog(null, "Logout Success!");
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jLabel1MouseClicked
 
     private void confirmpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmpassActionPerformed
         // TODO add your handling code here:
@@ -333,8 +300,6 @@ public class changepass extends javax.swing.JFrame {
     public javax.swing.JPasswordField confirmpass;
     public javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -345,6 +310,7 @@ public class changepass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public javax.swing.JPasswordField newpass;
     public javax.swing.JPasswordField oldpass;

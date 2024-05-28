@@ -102,9 +102,9 @@ public class updatepage extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -119,13 +119,13 @@ public class updatepage extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("First name:");
         id.add(jLabel1);
-        jLabel1.setBounds(30, 54, 85, 30);
+        jLabel1.setBounds(20, 130, 85, 30);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Last name:");
         id.add(jLabel2);
-        jLabel2.setBounds(30, 90, 85, 29);
+        jLabel2.setBounds(20, 170, 85, 29);
 
         fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +133,7 @@ public class updatepage extends javax.swing.JFrame {
             }
         });
         id.add(fname);
-        fname.setBounds(120, 60, 156, 20);
+        fname.setBounds(110, 140, 130, 20);
 
         lname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,13 +141,13 @@ public class updatepage extends javax.swing.JFrame {
             }
         });
         id.add(lname);
-        lname.setBounds(120, 90, 156, 24);
+        lname.setBounds(110, 170, 130, 24);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
         id.add(jLabel4);
-        jLabel4.setBounds(30, 130, 85, 22);
+        jLabel4.setBounds(20, 210, 85, 22);
 
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,29 +155,29 @@ public class updatepage extends javax.swing.JFrame {
             }
         });
         id.add(email);
-        email.setBounds(120, 120, 156, 30);
+        email.setBounds(110, 210, 130, 20);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Username:");
         id.add(jLabel5);
-        jLabel5.setBounds(30, 158, 85, 25);
+        jLabel5.setBounds(20, 240, 85, 25);
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password:");
         id.add(jLabel6);
-        jLabel6.setBounds(30, 190, 85, 25);
+        jLabel6.setBounds(20, 270, 85, 25);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Type:");
         id.add(jLabel7);
-        jLabel7.setBounds(30, 215, 85, 25);
+        jLabel7.setBounds(20, 300, 85, 25);
 
         username.setEnabled(false);
         id.add(username);
-        username.setBounds(120, 160, 156, 25);
+        username.setBounds(110, 240, 130, 20);
 
         acctype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         acctype.addActionListener(new java.awt.event.ActionListener() {
@@ -186,21 +186,21 @@ public class updatepage extends javax.swing.JFrame {
             }
         });
         id.add(acctype);
-        acctype.setBounds(119, 215, 156, 25);
+        acctype.setBounds(110, 300, 130, 25);
 
         pass.setEnabled(false);
         id.add(pass);
-        pass.setBounds(119, 190, 156, 23);
+        pass.setBounds(110, 270, 130, 23);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("ID");
         id.add(jLabel8);
-        jLabel8.setBounds(30, 26, 85, 17);
+        jLabel8.setBounds(20, 100, 85, 17);
 
         regid.setEnabled(false);
         id.add(regid);
-        regid.setBounds(120, 30, 156, 20);
+        regid.setBounds(110, 110, 130, 20);
 
         label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,17 +211,17 @@ public class updatepage extends javax.swing.JFrame {
             }
         });
         id.add(label);
-        label.setBounds(250, 280, 80, 25);
+        label.setBounds(180, 390, 80, 25);
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Status");
         id.add(jLabel9);
-        jLabel9.setBounds(30, 246, 85, 23);
+        jLabel9.setBounds(20, 340, 85, 23);
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         id.add(status);
-        status.setBounds(119, 248, 156, 23);
+        status.setBounds(110, 340, 130, 23);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,24 +232,24 @@ public class updatepage extends javax.swing.JFrame {
             }
         });
         id.add(jLabel10);
-        jLabel10.setBounds(120, 280, 70, 30);
-
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\SCC-COLLEGE\\Downloads\\back.jpg")); // NOI18N
-        jLabel11.setText("jLabel11");
-        id.add(jLabel11);
-        jLabel11.setBounds(0, 0, 940, 420);
-
-        jPanel1.add(id);
-        id.setBounds(0, 70, 820, 420);
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setText("UPDATE FORM!");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(340, 10, 220, 40);
+        jLabel10.setBounds(110, 390, 70, 30);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(280, 10, 60, 50);
+        id.add(jLabel12);
+        jLabel12.setBounds(20, 40, 60, 50);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("UPDATE FORM!");
+        id.add(jLabel3);
+        jLabel3.setBounds(80, 40, 220, 40);
+
+        jPanel1.add(id);
+        id.setBounds(0, 0, 270, 490);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/apol.png"))); // NOI18N
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(320, 60, 450, 370);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
