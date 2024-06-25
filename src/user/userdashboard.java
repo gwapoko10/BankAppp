@@ -19,9 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class userdashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form admindashboard
-     */
+    
     public userdashboard() {
         initComponents();
     }
@@ -147,7 +145,7 @@ public class userdashboard extends javax.swing.JFrame {
         jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 130, 10));
 
         availbal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        availbal.setText("$ 0.00");
+        availbal.setText("0.00");
         jPanel4.add(availbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 150, 50));
 
         jPanel1.add(jPanel4);
@@ -162,7 +160,7 @@ public class userdashboard extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
        
-        deposit deposit = new deposit();
+        depodraw deposit = new depodraw();
         deposit.setVisible(true);
         this.dispose();
         
@@ -243,7 +241,7 @@ public class userdashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel availbal;
+    public javax.swing.JLabel availbal;
     public javax.swing.JLabel bname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

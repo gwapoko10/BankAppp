@@ -19,9 +19,7 @@ import net.proteanit.sql.DbUtils;
  */
 public class userform extends javax.swing.JFrame {
 
-    /**
-     * Creates new form userform
-     */
+   
     public userform() {
         initComponents();
         

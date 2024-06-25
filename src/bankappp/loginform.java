@@ -107,19 +107,23 @@ public class loginform extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 255));
         jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 10)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("USERNAME:");
+        jLabel2.setText("USERNAME");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 140, 100, 17);
+        jLabel2.setBounds(30, 144, 100, 20);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 2, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("PASSWORD:");
+        jLabel3.setText("PASSWORD");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(30, 190, 100, 17);
+        jLabel3.setBounds(30, 190, 100, 30);
 
-        username.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        username.setBackground(new java.awt.Color(0, 0, 255));
+        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        username.setCaretColor(new java.awt.Color(255, 255, 255));
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
@@ -155,7 +159,12 @@ public class loginform extends javax.swing.JFrame {
         jPanel1.add(jButton3);
         jButton3.setBounds(20, 290, 140, 23);
 
+        password.setBackground(new java.awt.Color(0, 0, 255));
         password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        password.setForeground(new java.awt.Color(255, 255, 255));
+        password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        password.setCaretColor(new java.awt.Color(255, 255, 255));
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
