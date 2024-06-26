@@ -5,15 +5,19 @@
  */
 package user;
 
+import config.Session;
+import config.dbConnector;
+import javax.swing.JOptionPane;
+import static user.depodraw.dep;
+
 /**
  *
  * @author kyle
  */
 public class withdraw extends javax.swing.JFrame {
 
-    /**
-     * Creates new form withdraw
-     */
+    private userdashboard ad = new userdashboard();
+
     public withdraw() {
         initComponents();
     }
@@ -95,12 +99,21 @@ public class withdraw extends javax.swing.JFrame {
     }//GEN-LAST:event_withcashActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       
-        userdashboard user = new userdashboard();
-        user.setVisible(true);
-        this.dispose();
-        
-        
+        try {
+            double val = Double.parseDouble(withcash.getText());
+            dbConnector db = new dbConnector();
+
+            db.insertData("insert into tbl_transaction (u_id,t_type,t_amount) values"
+                    + "('" + Session.getInstance().getUid() + "', 'Withdraw', '" + val + "')");
+
+            ad.totalBalance();
+            ad.setVisible(true);
+            dispose();
+
+        } catch (NumberFormatException er) {
+            JOptionPane.showMessageDialog(null, "Please Input a Valid Number!");
+            System.out.println(er.getMessage());
+        }
     }//GEN-LAST:event_jLabel4MouseClicked
 
     /**

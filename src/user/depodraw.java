@@ -5,13 +5,9 @@
  */
 package user;
 
+import config.Session;
 import config.dbConnector;
-import internalPages.updatepage;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import javax.swing.table.TableModel;
-import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -19,28 +15,11 @@ import net.proteanit.sql.DbUtils;
  */
 public class depodraw extends javax.swing.JFrame {
 
-    /**
-     * Creates new form deposit
-     */
+    private userdashboard ad = new userdashboard();
+
     public depodraw() {
         initComponents();
-        
-        displayData();
-    }
-    
-    
-    public void displayData(){
-        try{
-            dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT * FROM tbl_depodraw");
-            deptable.setModel(DbUtils.resultSetToTableModel(rs));
-            
-        }catch(SQLException ex){
-            System.out.println("Errors: "+ex.getMessage());
-        
-        }
-        
-    
+
     }
 
     /**
@@ -54,27 +33,16 @@ public class depodraw extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        id = new javax.swing.JTextField();
-        name = new javax.swing.JTextField();
         dep = new javax.swing.JTextField();
-        with = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        deptable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(692, 480));
-        setMinimumSize(new java.awt.Dimension(692, 480));
+        setMaximumSize(new java.awt.Dimension(360, 200));
+        setMinimumSize(new java.awt.Dimension(360, 200));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(692, 480));
+        setPreferredSize(new java.awt.Dimension(360, 200));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -83,63 +51,19 @@ public class depodraw extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 255));
         jPanel2.setLayout(null);
 
-        id.setBackground(new java.awt.Color(0, 0, 255));
-        id.setForeground(new java.awt.Color(255, 255, 255));
-        id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        id.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        id.setCaretColor(new java.awt.Color(255, 255, 255));
-        id.setEnabled(false);
-        id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idActionPerformed(evt);
-            }
-        });
-        jPanel2.add(id);
-        id.setBounds(20, 30, 150, 30);
-
-        name.setBackground(new java.awt.Color(0, 0, 255));
-        name.setForeground(new java.awt.Color(255, 255, 255));
-        name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        name.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        name.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel2.add(name);
-        name.setBounds(20, 100, 150, 30);
-
         dep.setBackground(new java.awt.Color(0, 0, 255));
         dep.setForeground(new java.awt.Color(255, 255, 255));
         dep.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         dep.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         dep.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel2.add(dep);
-        dep.setBounds(20, 170, 150, 30);
+        dep.setBounds(30, 80, 300, 30);
 
-        with.setBackground(new java.awt.Color(0, 0, 255));
-        with.setForeground(new java.awt.Color(255, 255, 255));
-        with.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        with.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        with.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel2.add(with);
-        with.setBounds(20, 240, 150, 30);
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ID");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(20, 10, 100, 14);
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Name");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(20, 80, 110, 14);
-
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Deposit");
+        jLabel3.setText("Amount");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 150, 120, 14);
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Withdraw");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 220, 150, 14);
+        jLabel3.setBounds(30, 40, 120, 19);
 
         jButton1.setText("DEPOSIT");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -148,77 +72,48 @@ public class depodraw extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(20, 370, 150, 23);
+        jButton1.setBounds(180, 140, 150, 23);
 
-        jButton2.setText("WITHDRAW");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(20, 400, 150, 23);
-
-        jButton3.setText("REFRESH");
+        jButton3.setText("BACK");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton3);
-        jButton3.setBounds(20, 440, 150, 23);
-
-        jButton4.setText("ADD");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton4);
-        jButton4.setBounds(20, 280, 150, 30);
-
-        jButton5.setText("EXTRACT");
-        jPanel2.add(jButton5);
-        jButton5.setBounds(20, 320, 150, 30);
+        jButton3.setBounds(30, 140, 100, 23);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 190, 480);
+        jPanel2.setBounds(0, 0, 360, 200);
 
-        jScrollPane1.setViewportView(deptable);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(200, 10, 480, 460);
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 480));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 200));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dbConnector dbc = new dbConnector();
-           with.setEnabled(true);
-           dbc.updateData("UPDATE tbl_depodraw SET name = '"+name.getText()+"', d_amount = '"+dep.getText()+"' WHERE id = '"+id.getText()+"'");  
+        try {
+            double val = Double.parseDouble(dep.getText());
+            dbConnector db = new dbConnector();
+
+            db.insertData("insert into tbl_transaction (u_id,t_type,t_amount) values"
+                    + "('" + Session.getInstance().getUid() + "', 'Deposit', '" + val + "')");
+
+            ad.totalBalance();
+            ad.setVisible(true);
+            dispose();
+
+        } catch (NumberFormatException er) {
+            JOptionPane.showMessageDialog(null, "Please Input a Valid Number!");
+            System.out.println(er.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        displayData();
+        ad.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int rowindex = deptable.getSelectedRow();
-        if(rowindex < 0){
-            JOptionPane.showMessageDialog(null,"Please Select an Item!");
-        }else{
-            TableModel model = deptable.getModel();
-            
-            id.setText(""+model.getValueAt(rowindex, 0));
-            name.setText(""+model.getValueAt(rowindex, 1));
-            dep.setText(""+model.getValueAt(rowindex, 2));
-            
-            
-        
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,22 +152,11 @@ public class depodraw extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField dep;
-    private javax.swing.JTable deptable;
-    public javax.swing.JTextField id;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public static javax.swing.JTextField dep;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextField name;
-    public javax.swing.JTextField with;
     // End of variables declaration//GEN-END:variables
 }

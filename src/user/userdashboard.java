@@ -5,27 +5,47 @@
  */
 package user;
 
-import admin.*;
 import bankappp.loginform;
+import config.Session;
 import config.dbConnector;
 import internalPages.changepass;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author SCC
  */
-public class userdashboard extends javax.swing.JFrame {
+public final class userdashboard extends javax.swing.JFrame {
 
-    
+    private double nb = 0;
+
     public userdashboard() {
         initComponents();
+        totalBalance();
     }
 
-    static String idd;
-    
+    public void totalBalance() {
+        try {
+            dbConnector db = new dbConnector();
+            ResultSet rs = db.getData("select * from tbl_transaction where u_id = '" + Session.getInstance().getUid() + "'");
+
+            nb = 0; // Reset balance before recalculating
+            while (rs.next()) {
+                if (rs.getString("t_type").equalsIgnoreCase("Deposit")) {
+                    nb += Double.parseDouble(rs.getString("t_amount"));
+                } else if (rs.getString("t_type").equalsIgnoreCase("Withdraw")) {
+                    nb -= Double.parseDouble(rs.getString("t_amount"));
+                }
+            }
+
+            bal.setText(String.format("%.2f", nb));
+
+        } catch (SQLException er) {
+            System.out.println(er.getMessage());
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,7 +71,7 @@ public class userdashboard extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        availbal = new javax.swing.JLabel();
+        bal = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -144,9 +164,9 @@ public class userdashboard extends javax.swing.JFrame {
         });
         jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 130, 10));
 
-        availbal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        availbal.setText("0.00");
-        jPanel4.add(availbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 150, 50));
+        bal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        bal.setText("0.00");
+        jPanel4.add(bal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 150, 50));
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(0, 120, 700, 360);
@@ -159,47 +179,42 @@ public class userdashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-       
         depodraw deposit = new depodraw();
         deposit.setVisible(true);
         this.dispose();
-        
-        
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-       
+
         withdraw withdraw = new withdraw();
         withdraw.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-      
+
         reports reports = new reports();
         reports.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-     
+
         loginform login = new loginform();
         login.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        
+
         changepass change = new changepass();
         change.setVisible(true);
         this.dispose();
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jLabel13MouseClicked
 
     /**
@@ -241,7 +256,7 @@ public class userdashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel availbal;
+    public static javax.swing.JLabel bal;
     public javax.swing.JLabel bname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

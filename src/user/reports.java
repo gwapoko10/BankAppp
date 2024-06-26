@@ -5,6 +5,11 @@
  */
 package user;
 
+import config.dbConnector;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author kyle
@@ -16,6 +21,19 @@ public class reports extends javax.swing.JFrame {
      */
     public reports() {
         initComponents();
+        data();
+    }
+
+    private void data() {
+        try {
+            dbConnector db = new dbConnector();
+            ResultSet rs = db.getData("SELECT tbl_user.user_username, t_type, t_amount "
+                    + "FROM tbl_transaction "
+                    + "INNER JOIN tbl_user ON tbl_transaction.u_id = tbl_user.user_id");
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException er) {
+            System.out.println(er.getMessage());
+        }
     }
 
     /**
@@ -80,11 +98,11 @@ public class reports extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-     
+
         userdashboard ud = new userdashboard();
         ud.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
